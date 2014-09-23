@@ -10,7 +10,7 @@ Codename for SOS, a Q/A site for post-secondary students, catered around their p
 + `npm install`
 
 ### Running
-+ `node app.js`
++ `node ./bin/www`
 + visit localhost:3000 on your browser! 
 
 
