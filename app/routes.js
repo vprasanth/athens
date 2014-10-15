@@ -1,14 +1,12 @@
 'use strict';
 module.exports = function(app, passport) {
 
-    var router = app.Router();
-
-	router.get('/', function(req, res) {
+	app.get('/', function(req, res) {
 //		res.render('index.ejs', { message: req.flash('loginMessage') });
         res.json({message: 'home page!'});
 	});
 
-	router.route('/login')
+	app.route('/login')
         .get(function(req, res) {
 		// render the page and pass in any flash data if it exists
 //		res.render('login.ejs', { message: req.flash('loginMessage') });
