@@ -21,7 +21,7 @@ require('./app/config/passport')(passport);
 //app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
