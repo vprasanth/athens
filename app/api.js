@@ -3,7 +3,7 @@
 var express = require('express');
 var router  = express.Router();
 
-router.route('/question')
+router.route('/questions')
     .get(function(req,res){
         res.json({message: "return all questions"});
     })
@@ -15,3 +15,10 @@ router.route('/question')
 
         res.json({message: "question created!"});
     });
+
+router.route('/questions/:id')
+    .get(function(req,res){
+       // find question from db and return if it exist else fwd to not found page
+    });
+
+router.route()
