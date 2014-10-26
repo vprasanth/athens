@@ -1,7 +1,7 @@
 {
-  "name": "timber",
+  "name": "athens",
   "version": "0.1.0",
-  "description": "MEAN",
+  "description": "SOS",
   "main": "server.js",
   "dependencies": {
     "bcrypt": "latest",
@@ -21,5 +21,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Prasanth Vaaheeswaran",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Zappeion/athens.git"
+  }
 }

@@ -11,17 +11,19 @@ var express			= require('express'),
 	bodyParser     	= require('body-parser'),
 	session			= require('express-session'),
 	methodOverride 	= require('method-override'),
-	configDB 		= require('./config/database.js');
+	configDB 		= require('./app/config/database.js');
 
-/*configuration*/
+/*database configuration*/
 mongoose.connect(configDB.url);
-require('./config/passport')(passport);
+
+// Configure passport, i.e. create login stratagies
+require('./app/config/passport')(passport);
 
 /*set-up express application*/
 //app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
@@ -35,8 +37,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-/*pass configured app and passport to route handler*/
+// Configure passport
 require('./app/routes')(app, passport);
+require('./app/api')(app);
 
 
 /*special tasks for dev mode*/
@@ -46,6 +49,7 @@ if ('development' == env) {
    console.log('In dev mode...');
 }
 
-/*launch*/
+
+// Run
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('Port: ' + port);
