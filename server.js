@@ -15,6 +15,7 @@ var express			= require('express'),
 
 /*configuration*/
 mongoose.connect(configDB.url);
+// Configure passport, i.e. create login stratagies
 require('./config/passport')(passport);
 
 /*set-up express application*/
@@ -35,7 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-/*pass configured app and passport to route handler*/
+// Configure passport
 require('./app/routes')(app, passport);
 
 
@@ -46,6 +47,7 @@ if ('development' == env) {
    console.log('In dev mode...');
 }
 
-/*launch*/
+
+// Run
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('Port: ' + port);

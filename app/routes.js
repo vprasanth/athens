@@ -3,7 +3,8 @@
 module.exports = function(app, passport) {
 
 	app.get('/', function(req, res) {
-		res.render('index.ejs', { message: req.flash('loginMessage') });
+		//res.render('index.ejs', { message: req.flash('loginMessage') });
+		res.send('landing page');
 	});
 
 	app.get('/login', function(req, res) {
@@ -14,7 +15,7 @@ module.exports = function(app, passport) {
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {
 		successRedirect : '/profile', // redirect to the secure profile section
-		failureRedirect : '/', // redirect back to the signup page if there is an error
+		failureRedirect : '/login', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
 	}));
 
