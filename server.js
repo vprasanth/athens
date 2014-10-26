@@ -11,12 +11,13 @@ var express			= require('express'),
 	bodyParser     	= require('body-parser'),
 	session			= require('express-session'),
 	methodOverride 	= require('method-override'),
-	configDB 		= require('./config/database.js');
+	configDB 		= require('./app/config/database.js');
 
-/*configuration*/
+/*database configuration*/
 mongoose.connect(configDB.url);
+
 // Configure passport, i.e. create login stratagies
-require('./config/passport')(passport);
+require('./app/config/passport')(passport);
 
 /*set-up express application*/
 //app.use(express.static(__dirname + '/public'));
@@ -38,6 +39,7 @@ app.use(flash());
 
 // Configure passport
 require('./app/routes')(app, passport);
+require('./app/api')(app);
 
 
 /*special tasks for dev mode*/
