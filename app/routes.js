@@ -1,6 +1,11 @@
 'use strict';
 module.exports = function(app, passport) {
 
+	app.use(function(req, res, next) {
+		console.log("Received query;:'" + req.path + "'");
+		next();
+	});
+
 	app.get('/', function(req, res) {
 		//res.render('index.ejs', { message: req.flash('loginMessage') });
         res.json({message: 'home page!'});

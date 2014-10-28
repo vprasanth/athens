@@ -25,17 +25,28 @@
 
 
 module.exports = function(app) {
-    app.route('/questions')
-        .get(function(req,res){
-            res.json({message: "return all questions"});
+    var Question = require('../app/models/question');
+
+    app.route('/question')
+        .get(function(req,res) {
+            Question.find(function (err, questions) {
+                if (err)
+                    console.log(err);
+                    res.send(err);
+
+                console.log(questions);
+                res.json(questions);
+            });
         })
         .post(function(req,res){
-            var title = req.body.title,
-                question = req.body.question,
-                category = req.body.category,
-                author = req.body.author;
-
-            res.json({message: "question created!"});
+            var question = new Question();
+            question.questionDesc = req.body.questionDesc;
+            question.save(function(err) {
+                if (err)
+                    console.log(err);
+                    res.send(err);
+                res.json({message: "question created!"});
+            });
         });
 
     app.route('/questions/:id')

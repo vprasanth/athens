@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var answerSchema = Schema({
+var answerSchema = new Schema({
 	local : {
 		_id : String,
 		answerDesc : String,
@@ -11,7 +11,7 @@ var answerSchema = Schema({
 		user_id : Schema.Types.ObjectId,
 		postDate : {type: Date, default: Date.now },
 		editDate : {type: Date, default: Date.now }
-		//comments : [Schemda.Types.ObjectId
+		//comments : [Schema.Types.ObjectId
 	}
 });
 		

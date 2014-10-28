@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var programSchema = Schema({
+var programSchema = new Schema({
 	local : {
 		_id : String,
 		programName : String,
