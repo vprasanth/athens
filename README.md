@@ -13,7 +13,3 @@ Codename for SOS, a Q/A site for post-secondary students, catered around their p
 ### Running
 + `node ./server.js`
 + visit localhost:8080 on your browser!! 
-
-Hi I'm Ken
-
-
