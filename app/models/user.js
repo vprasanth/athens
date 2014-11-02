@@ -5,10 +5,8 @@ var mongoose = require('mongoose'),
 
 /*create scheme*/
 var userSchema = mongoose.Schema({
-		local            : {
 			email        : String,
 			password     : String
-		}
 	});
 
 /*generating a himashi*/
