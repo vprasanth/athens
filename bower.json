@@ -1,0 +1,25 @@
+{
+  "name": "athens",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Zappeion/athens",
+  "authors": [
+    "Prasanth Vaaheeswaran <prasanth@gmail.com>"
+  ],
+  "description": "sos",
+  "main": "server.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.1"
+  }
+}

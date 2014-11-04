@@ -1,25 +1,21 @@
-'use strict';
-
+/**
+ * Created by prasanthv on 04/11/14.
+ */
 var mongoose = require('mongoose'),
-	bcrypt   = require('bcrypt');
+    Schema = mongoose.Schema;
 
-/*create scheme*/
-var userSchema = mongoose.Schema({
-		local            : {
-			email        : String,
-			password     : String
-		}
-	});
+var UserSchema = new Schema({
+    firstName : String,
+    lastName: String,
+    program: String,
+    joined: Date,
+    last_online: Date,
+    _answers: [],
+    _questions: [],
+    _courses: [],
+    email : String,
+    password: String,
+    auth: Boolean
+});
 
-/*generating a himashi*/
-userSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-
-/*checking if password is valid*/
-userSchema.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.local.password);
-};
-
-/*create the model for users and expose it to our app*/
-module.exports = mongoose.model('User', userSchema);
+model.exports = mongoose.model('User', UserSchema);

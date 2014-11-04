@@ -1,7 +1,7 @@
 'use strict';
 
 var LocalStrategy   = require('passport-local').Strategy,
-User                = require('../models/user');
+User                = require('./user');
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
