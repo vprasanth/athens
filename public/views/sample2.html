@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+   <meta charset="utf-8">
+   <title>Bootply.com - Bootstrap Collapsing sidebar drawer menu</title>
+   <meta name="generator" content="Bootply" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <!-- <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
+   <link href="bootstrap.css" rel="stylesheet">
+   <script src="../vendor/angular.js"></script>
+   <script src="../vendor/angular-animate.js"></script>
+   <script src="../javascripts/bootstrap.js"></script> 
+   <script src="../vendor/angular-messages.js"></script>
+   <script src="../vendor/angular-resource.js"></script> 
+   
+   
+   <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
+   <link rel="shortcut icon" href="/bootstrap/img/favicon.ico">
+   <link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.min.css">
+   <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
+   <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
+   <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
+  <!-- CSS code from Bootply.com editor -->
+   <style type="text/css">
+      body {
+        padding-top: 51px;  
+      }
+      .text-center {
+        <!-- padding-top: 20px; -->
+      }
+      .col-xs-12 {
+        <!-- background-color: #fff; -->
+      }
+      #sidebar {
+        height: 100%;
+        padding-right: 0;
+        padding-top: 40px;
+      }
+      #sidebar .nav {
+        width: 20%;
+      }
+      #sidebar li {
+        border:0 #f2f2f2 solid;
+        border-bottom-width:1px;
+      }
+
+      /* collapsed sidebar styles */
+      @media screen and (max-width: 767px) {
+        .row-offcanvas {
+          position: relative;
+          -webkit-transition: all 0.25s ease-out;
+          -moz-transition: all 0.25s ease-out;
+          transition: all 0.25s ease-out;
+        }
+        .row-offcanvas-right
+        .sidebar-offcanvas {
+          right: -41.6%;
+        }
+
+        .row-offcanvas-left
+        .sidebar-offcanvas {
+          left: -41.6%;
+        }
+        .row-offcanvas-right.active {
+          right: 41.6%;
+        }
+        .row-offcanvas-left.active {
+          left: 41.6%;
+        }
+        .sidebar-offcanvas {
+          position: absolute;
+          top: 0;
+          width: 41.6%;
+        }
+        #sidebar {
+          padding-top:20;
+        }
+      }
+   </style>
+   <style type="text/css">
+   .greycolor{
+      color:#7B7B7B;
+   }
+   .lightbluecolor{
+      color:#85D5E4;
+   }
+   .darkbluecolor{
+      color:#205C8E;
+   }
+   .crimsonRed{
+      color:#DC143C;
+   }
+   .bgdarkBlueColor{
+      background-color:#205C8E;
+   }
+   .whiteColor{
+      color:#ffffff;
+   }
+   .yellowColor{
+      color:#FFFF33;
+   }
+   .Papyrys-font{
+      font-family: Papyrus, fantasy;
+   }
+   .posttext{
+      max-width:100%;
+      min-width:65%;
+      min-height:60px;
+   }
+   </style>
+</head>
+
+<body>
+   <div class="page-container">
+	<!-- top navbar -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+         <div class="container container-fluid">
+            <div class="navbar-header" style="width:100%">
+               <div class="row">
+                  <div class="col-xs-0 col-sm-1 col-md-1 col-lg-1"></div>
+                  <div class="col-xs-8 col-sm-9 col-md-10 col-lg-8 col-lg-offset-1">
+                     <form class="navbar-form form-inline" role="search" style="border-color:aliceblue">							
+                        <div class="col-md-6 col-md-offset-3">
+                           <div class="input-group" style="width:100%">
+                              <input type="text" class="form-control" placeholder="Search ... ">
+                              <span class="input-group-btn">
+                                 <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                              </span>
+                           </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                     </form>
+                  </div>
+                  <div class="col-xs-0 col-sm-0 col-md-0 col-lg-2"></div>
+                  <div class="col-xs-4 col-sm-2 col-md-1 col-lg-1 col-lg-offset-1">
+                     <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                           <button type="button" class="btn btn-default navbar-btn btn-primary" ng-click="thisPage='newPost'">      
+                              <i class="fa fa-pencil fa-2x"></i>
+                           </button>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                           <button type="button" class="btn btn navbar-btn navbar-toggle btn-primary" style="float:none; color:black; border: none;" data-toggle="offcanvas" data-target=".sidebar-nav">
+                              <i class="fa fa-bars fa-2x"></i>
+                           </button>
+                        </div>
+                     </div><!-- #row -->
+                  </div>
+               </div><!-- #row -->			   
+            </div><!-- #navbar-header -->
+         </div> <!-- #container -->
+      </div><!-- navbar -->
+    
+      <div class="container">
+         <div class="row row-offcanvas row-offcanvas-left">
+           <!-- sidebar -->
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+               <ul class="nav affix">
+                  <li><a href="#sec0" ng-click="thisPage='timeline'"><i class="fa fa-list-alt fa-fw"></i>&nbsp; Timeline</a></li>
+                  <li><a href="#sec1" ng-click="thisPage='public'"><i class="fa fa-globe fa-fw"></i>&nbsp; Public</a></li>
+                  <li><a href="#sec2" ng-click="thisPage='private'"><i class="fa fa-lock fa-fw"></i>&nbsp; Private</a></li>
+                  <li><a href="#sec3" ng-click="thisPage='market'"><i class="fa fa-tags fa-fw"></i>&nbsp; Market</a></li>
+                  <li><a href="#sec4" ng-click="thisPage='consersation'"><i class="fa fa-comment fa-fw"></i>&nbsp; Conversations</a></li>
+                  <li><a href="#sec4" ng-click="thisPage='myPosts'"><i class="fa fa-question fa-fw"></i>&nbsp; My Posts</a></li>
+                  <li><a href="#sec4" ng-click="thisPage='archive'"><i class="fa fa-star  fa-fw"></i>&nbsp; Archive</a></li>
+                  <li><a href="#sec4" ng-click="thisPage='notes'"><i class="fa fa-file-text fa-fw"></i>&nbsp; Notes</a></li>
+                  <li><a href="#sec4" ng-click="thisPage='settings'"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a></li>             
+                  <li><a href="#sec4" ng-click="thisPage='LogOut'"><i class="fa fa-sign-out fa-fw"></i>&nbsp; Log Out</a></li>
+               </ul>
+            </div> 	    	
+            <!-- main area -->
+            <div class="col-xs-12 col-sm-9 padding-top">
+               <div ng-switch="thisPage" class="animate-switch-container">
+                  <div ng-switch-default class="animate-switch">
+                     <h1 class="Papyrys-font darkbluecolor">Timeline</h1>
+                     <div class="panel panel-default">
+                        <div class="panel-heading">
+                           <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                                 <a href="google.com">
+                                    <h2 class="darkbluecolor"><i class="fa fa-globe fa-spin"></i> : Fifth Amendment</h2>
+                                 </a>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                                 <p class="text-right"><i class="fa fa-user fa-1x"></i> : KenNguyen</p>
+                              </div>
+                           </div><!-- .row -->
+                        </div><!-- ./panel-heading -->
+                        <div class="panel-body">
+                        No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment 
+                        or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, 
+                        when in actual service in time of War or public danger; nor shall any person be subject for the same 
+                        offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be 
+                        a witness against himself, nor be deprived of life, liberty, or property, without due process of law; 
+                        nor shall private property be taken for public use, without just compensation.
+                        </div>
+                        <div class="panel-footer">
+                           <div class="row text-center" ng-init="reportValue='Report'">
+                              <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" style="margin-top: 7px;">3 hours ago</div>
+                              <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+                                 <button type="button" class="btn btn-primary"> LAW101 </button>
+                              </div>
+                              <!-- <div class="col-xs-4 col-sm-4 col-md-2 text-center">Type</div> -->
+                              <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+                                 <button type="button" class="btn btn-primary" style="width:135px"> Respond </button>
+                              </div>
+                              <div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+                                 <button type="button" class="btn btn-default" ng-class="{'btn-primary':archive=='clicked'}" ng-click="archive=(archive=='clicked'?'unclicked':'clicked')"> 
+                                    <i class="fa" ng-class="{'fa-star yellowColor':archive=='clicked',
+                                                             'fa-star-o':archive!='clicked'}"></i>
+                                 </button>
+                              </div>
+                              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                 <!-- Single button -->
+                                    <div class="btn-group">
+                                       <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" style="width: 135px;">
+                                         {{ reportValue }} <span class="caret"></span>
+                                       </button>
+                                       <ul class="dropdown-menu" role="menu">
+                                          <li><a href="#" ng-click="reportChoice='reported'; reportValue='Report User'">Report User</a></li>
+                                          <li><a href="#" ng-click="reportChoice='reported'; reportValue='Report Question' ">Report the question</a></li>
+                                          <li class="divider"></li>
+                                          <li><a href="#" ng-click="reportChoice='cancel'; reportValue='Report' ">Cancel report</a></li>
+                                      </ul>
+                                    </div><!-- .btn-group -->
+                                    <i ng-class="{'fa fa-flag fa-2x crimsonRed':reportChoice=='reported',
+                                                   '':reportChoice!='reported'}" style="margin-top:-7px"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div><!-- .panel -->
+                  </div><!-- ng-switch-default -->
+                  <div  ng-switch-when="newPost" class="animate-switch">
+                  <!-- style="color: #428bca" -->
+                     <h1 class="Papyrys-font darkbluecolor">Create A New Post</h1>
+                     <form method="post" ng-submit="publishPost()" name="newPostForm"> 
+                        <div class="panel panel-default">
+                           <div class="panel-heading">
+                              <div class="form-group" ng-class="{'has-success' : newPostForm.title.$valid && newPostForm.title.$dirty, 
+                                                                 'has-error' : newPostForm.title.$invalid && newPostForm.title.$dirty }">
+                                 <input class="form-control input-lg" type="text" id="title" name="title" placeholder="Title ..." ng-model="title" required> 
+                                 <div class="help-block text-warning bg-warning" 
+                                       ng-if="newPostForm.title.$dirty && newPostForm.title.$invalid" 
+                                       ng-messages="newPostForm.title.$error">
+                                       <div ng-message="required">Your forgot to enter the title ...</div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="panel-body">
+                              <div class="form-group" ng-class="{'has-success' : newPostForm.message.$valid && newPostForm.message.$dirty, 
+                                                                 'has-error' : newPostForm.message.$invalid && newPostForm.message.$dirty }">
+                                 <textarea class="form-control input-lg posttext" id="message" name="message" ng-model="message" required placeholder="Type the question you want to ask ..."></textarea>
+                                 <div class="help-block text-danger" 
+                                       ng-if="newPostForm.message.$dirty && newPostForm.message.$invalid" 
+                                       ng-messages="newPostForm.message.$error">
+                                    <div ng-message="required">Your forgot to enter the message ...</div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <select class="form-control dropdown" ng-model="course" ng-options="">
+                                       <option value="">Select the course</option>
+                                       <option>OPP344</option>
+                                       <option>IPC144</option>
+                                       <option>INT322</option>
+                                    </select>
+                                 </div>
+                              </div><!-- .row -->
+                           </div><!-- .panel-body -->
+                           <div class="panel-footer">
+                              <div class="row">
+                                 <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                                    <label class="radio-inline">
+                                       <input type="radio" name="questionType" value="private" ng-model="questionType">
+                                       <i class="fa fa-lock fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='private'}">                                       </i>
+                                    </label>
+                                 </div>
+                                 <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                                    <label class="radio-inline">
+                                       <input type="radio" name="questionType" value="public" ng-model="questionType" ng-checked="true">
+                                       <i class="fa fa-globe fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='public'}"></i>
+                                    </label>
+                                 </div>
+                                 <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+                                    <label class="radio-inline">
+                                       <input type="radio" name="questionType" value="market" ng-model="questionType">
+                                       <i class="fa fa-tags fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='market'}">
+                                       </i>
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div><!-- ./panel-->
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit</button>
+                     </form>
+                  </div> <!-- /newPost -->
+                  <div ng-switch-when="public" class="animate-switch">
+                     <h1>Public</h1>
+                  </div>
+                  <div ng-switch-when="private" class="animate-switch">
+                     <h1>Private</h1>
+                  </div>
+                  <div ng-switch-when="myPosts" class="animate-switch">
+                     <h1>My Posts</h1>
+                  </div>
+                  <div ng-switch-when="settings" class="animate-switch">
+                     <h1>Settings</h1>
+                  </div>
+               </div><!-- ng-switch -->
+            </div><!-- /.col-xs-12 main -->
+         </div><!--/.row-->
+      </div><!--/.container-->
+   </div><!--/.page-container-->
+
+   <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script type='text/javascript' src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   <!-- JavaScript jQuery code from Bootply.com editor  -->
+   <script type='text/javascript'>
+      $(document).ready(function() {
+         $('[data-toggle=offcanvas]').click(function() {
+            $('.row-offcanvas').toggleClass('active');
+         });
+      });
+   </script>
+   <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-40413119-1', 'bootply.com');
+         ga('send', 'pageview');
+   </script>
+
+</body>
+</html>
