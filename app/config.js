@@ -8,7 +8,7 @@ config.express = {
 
 config.mongo = {
     'localUrl' : 'localhost:27017/test',
-    'url' : 'mongodb://prasanthv:rinoaa@ds051160.mongolab.com:51160/sos-pv'
+    'url' : 'mongodb://<user>:<password>@ds051160.mongolab.com:51160/sos-pv'
 };
 
 if (PRODUCTION) {
