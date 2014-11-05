@@ -15,7 +15,8 @@ var config			= require('./config'),
 	methodOverride 	= require('method-override');
 
 /*database configuration*/
-//mongoose.connect(configDB.url);
+//console.log(config);
+mongoose.connect('mongodb://test:test@ds051160.mongolab.com:51160/sos-pv');
 
 // Configure passport, i.e. create login stratagies
 //require('./config/passport')(passport);
@@ -39,7 +40,7 @@ app.use(methodOverride());
 
 // Configure API
 var router = express.Router();
-require('./api')(router);
+require('./questions/questionRoutes')(router);
 app.use('/api', router);
 
 

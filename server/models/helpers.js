@@ -26,3 +26,4 @@ var Answer = new Schema({
 module.exports.Answer = Answer;
 module.exports.CreatedDate = CreatedDate;
 module.exports.Meta = Meta;
+module.exports.CreatedDateModel = mongoose.model('CreatedDate', CreatedDate);

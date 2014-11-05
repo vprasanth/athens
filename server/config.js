@@ -16,6 +16,7 @@ fs.readFile(path.join(__dirname + '/etc/database.json'),{encoding: "utf8"}, func
     }
     //@TODO Probably a way better way to do this, but don't care atm
     if (obj !== undefined) {
+        console.log('Loaded database settings!');
         config.mongo = {
             'url' : obj.url
         };

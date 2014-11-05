@@ -11,14 +11,14 @@ var UserSchema = new Schema({
     firstName : String,
     lastName: String,
     program: String,
-    created: HelperSchemas.CreatedDate,
-    last_online: Date,
+    created: [HelperSchemas.CreatedDate],
+    last_online: [HelperSchemas.CreatedDate],
     answers: [HelperSchemas.Answer],
-    _questions: ObjectId,
-    _courses: [ObjectId],
+    _questions: Array,
+    _courses: Array,
     email : String,
     password: String,
     auth: Boolean
 });
 
-model.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
