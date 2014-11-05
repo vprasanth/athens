@@ -1,18 +1,18 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var questionSchema = mongoose.Schema({
-	local : {
-		_id : String;
-		questionDesc : String;
-		questionType : String;
-		answers : [Schema.Types.ObjectId];
-		user_id : Schema.Types.ObjectId;
-		postDate : {type: Date, default: Date.now };
-		editDate : {type: Date, default: Date.now };
-		course_id : Schema.Types.ObjectId;	
-	}
+var questionSchema = new Schema({
+      questionTitle : String,
+		questionDesc : String,
+		questionType : String,
+		_answers : [{type: Schema.Types.ObjectId, ref: "Answer"}],
+		_user : {type: Schema.Types.ObjectId, ref: "User"},
+		postDate : {type: Date, default: Date.now },
+		editDate : {type: Date, default: Date.now },
+		_course : {type: Schema.Types.ObjectId, ref: "Course"}
+		//comments : [Schema.Types.ObjectId]
 });
 		
-		
+module.exports = mongoose.model('Question', questionSchema);

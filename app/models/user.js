@@ -1,14 +1,12 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-	bcrypt   = require('bcrypt');
+	bcrypt   = require('bcrypt-nodejs');
 
 /*create scheme*/
 var userSchema = mongoose.Schema({
-		local            : {
 			email        : String,
 			password     : String
-		}
 	});
 
 /*generating a himashi*/
