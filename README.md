@@ -14,8 +14,13 @@ Codename for SOS, a Q/A site for post-secondary students, catered around their p
 + `bower install`
 
 ### Config
-+ config monogodb user in `app/config.js`
-
+Add your mongodb credentials in to `app/etc/database.json`
+**DO NOT COMMIT CHANGES FOR THIS FILE** It should **only** be used as a template.
+```json
+{
+  "url" : ["mongodb://<user>:<password>@ds051160.mongolab.com:51160/sos-pv"]
+}
+```
 ### Running
 + `node app/server.js`
 + visit localhost:3000 on your browser!!
