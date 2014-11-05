@@ -38,7 +38,9 @@ app.use(methodOverride());
 //require('./routes')(app, passport);
 
 // Configure API
-require('./api')(app);
+var router = express.Router();
+require('./api')(router);
+app.use('/api', router);
 
 
 // Start Server

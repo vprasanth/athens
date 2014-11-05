@@ -1,18 +1,21 @@
 /**
  * Created by prasanthv on 04/11/14.
  */
+'use strict';
+
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    HelperSchemas = require('./helpers');
 
 var UserSchema = new Schema({
     firstName : String,
     lastName: String,
     program: String,
-    joined: Date,
+    created: HelperSchemas.CreatedDate,
     last_online: Date,
-    _answers: [],
-    _questions: [],
-    _courses: [],
+    answers: [HelperSchemas.Answer],
+    _questions: ObjectId,
+    _courses: [ObjectId],
     email : String,
     password: String,
     auth: Boolean
