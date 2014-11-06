@@ -1,0 +1,59 @@
+<h1 class="Papyrys-font darkbluecolor">Public</h1>
+<div ng-repeat="question in questionsRES | filter:searchText">
+<div class="panel panel-default">
+   <div class="panel-heading">
+      <div class="row">
+         <div class="col-xs-8 col-sm-9 col-md-9 col-lg-10">
+            <a href="google.com">
+               <h2 class="darkbluecolor"><i class="fa fa-globe fa-spin"></i> : {{ question.title }}</h2>
+            </a>
+            {{ question.postDate }}
+         </div>
+         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+            <p class="text-right"> <i class="fa fa-user fa-1x"></i> : {{ question._user.name }}<br/>
+            {{ question._report.length }} reports<br/>
+            {{ question._answers.length }} answers
+            </p>
+         </div>
+      </div><!-- .row -->
+   </div><!-- ./panel-heading -->
+   <div class="panel-body">
+   {{ question.questionDesc }}
+   </div>
+   <div class="panel-footer">
+      <div class="row text-center" ng-init="reportValue='Report'">
+         <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
+            <button type="button" class="btn btn-default" ng-class="{'btn-primary':archive=='clicked'}" ng-click="archive=(archive=='clicked'?'unclicked':'clicked')"> 
+               <i class="fa" ng-class="{'fa-star yellowColor':archive=='clicked',
+                                        'fa-star-o':archive!='clicked'}"></i>
+            </button>
+         </div>
+         <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+            <button type="button" class="btn btn-primary"> LAW101 </button>
+         </div>
+         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <button type="button" class="btn btn-primary" style="width:135px"> Respond </button>
+         </div>
+         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <button type="button" class="btn btn-primary" style="width:135px"> Comment </button>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <!-- Single button -->
+               <div class="btn-group">
+                  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" style="width: 135px;">
+                    {{ reportValue }} <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                     <li><a href="" ng-click="reportChoice='reported'; reportValue='Report User'">Report User</a></li>
+                     <li><a href="" ng-click="reportChoice='reported'; reportValue='Report Question' ">Report the question</a></li>
+                     <li class="divider"></li>
+                     <li><a href="" ng-click="reportChoice='cancel'; reportValue='Report' ">Cancel report</a></li>
+                 </ul>
+               </div><!-- .btn-group -->
+               <i ng-class="{'fa fa-flag fa-2x crimsonRed':reportChoice=='reported',
+                              '':reportChoice!='reported'}" style="margin-top:-7px"></i>
+         </div>
+      </div>
+   </div>
+</div><!-- .panel -->
+</div><!-- Repeat -->

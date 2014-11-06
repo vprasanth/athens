@@ -17,9 +17,13 @@ var KenApp = angular.module('KenApp', [ 'ngMessages', 'ngRoute', 'ngResource'])
      templateUrl: 'views/timeline.html',
      controller: 'TimelineCtrl'
    })
+   .when('/public',{
+     templateUrl: 'views/public.html',
+     controller: 'PublicCtrl'
+   })
    .when('/newpost',{
-     templateUrl: 'views/newquestion.html'//,
-     //controller: 'NewPostCtrl'
+     templateUrl: 'views/newquestion.html',
+     controller: 'NewPostCtrl'
    })
    .when('/NewPost',{   
       redirectTo: '/newpost'

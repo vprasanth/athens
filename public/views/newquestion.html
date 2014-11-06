@@ -23,14 +23,12 @@
                <div ng-message="required">Your forgot to enter the message ...</div>
             </div>
          </div>
+
          <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4">
-               <select class="form-control dropdown" ng-model="course" ng-options="">
-                  <option value="">Select the course</option>
-                  <option>OPP344</option>
-                  <option>IPC144</option>
-                  <option>INT322</option>
-               </select>
+             <select class="form-control dropdown"  ng-model="courseReq" ng-options="course.name for course in courses">
+               <option value="">-- Select the course --</option>
+             </select>
             </div>
          </div><!-- .row -->
       </div><!-- .panel-body -->
@@ -39,20 +37,19 @@
             <div class="col-xs-4 col-sm-4 col-md-4 text-center">
                <label class="radio-inline">
                   <input type="radio" name="questionType" value="private" ng-model="questionType">
-                  <i class="fa fa-lock fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='private'}">                                       </i>
+                  <i class="fa fa-lock fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='private'}"></i>
                </label>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 text-center">
                <label class="radio-inline">
-                  <input type="radio" name="questionType" value="public" ng-model="questionType" ng-checked="true">
+                  <input type="radio" name="questionType" value="public" ng-model="questionType">
                   <i class="fa fa-globe fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='public'}"></i>
                </label>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 text-center">
                <label class="radio-inline">
                   <input type="radio" name="questionType" value="market" ng-model="questionType">
-                  <i class="fa fa-tags fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='market'}">
-                  </i>
+                  <i class="fa fa-tags fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='market'}"></i>
                </label>
             </div>
          </div>
