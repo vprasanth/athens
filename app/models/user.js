@@ -1,11 +1,13 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-	bcrypt   = require('bcrypt');
+	bcrypt   = require('bcrypt-nodejs');
 
 /*create scheme*/
 var userSchema = mongoose.Schema({
 		local            : {
+         username     : String,
+         fullname     : String,
 			email        : String,
 			password     : String,
 		}
@@ -23,3 +25,4 @@ userSchema.methods.validPassword = function(password) {
 
 /*create the model for users and expose it to our app*/
 module.exports = mongoose.model('User', userSchema);
+

@@ -1,7 +1,7 @@
 'use strict';
 
 var LocalStrategy   = require('passport-local').Strategy,
-User                = require('../app/models/user');
+User                = require('../models/user');
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
@@ -25,42 +25,43 @@ module.exports = function(passport) {
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, email, password, done) {
+        function(req, email, password, done) {
 
-        // asynchronous
-        // User.findOne wont fire unless data is sent back
-        process.nextTick(function() {
+            // asynchronous
+            // User.findOne wont fire unless data is sent back
+            process.nextTick(function() {
 
-            User.findOne({ 'local.email' :  email }, function(err, user) {
-                // if there are any errors, return the error
-                if (err)
-                    return done(err);
+                User.findOne({ 'local.email' :  email }, function(err, user) {
+                    // if there are any errors, return the error
+                    if (err)
+                        return done(err);
 
-                // check to see if theres already a user with that email
-                if (user) {
-                    return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-                } else {
+                    // check to see if theres already a user with that email
+                    if (user) {
+                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                    } else {
 
-    				// if there is no user with that email
-                    // create the user
-                    var newUser            = new User();
+                        // if there is no user with that email
+                        // create the user
+                        var newUser            = new User();
 
-                    // set the user's local credentials
-                    newUser.local.email    = email;
-                    newUser.local.password = newUser.generateHash(password);
+                        // set the user's local credentials
+                        newUser.local.email    = email;
+                        newUser.local.password = newUser.generateHash(password);
 
-    				// save the user
-                    newUser.save(function(err) {
-                        if (err)
-                            throw err;
-                        return done(null, newUser);
-                    });
-                }
+                        // save the user
+                        newUser.save(function(err) {
+                            if (err)
+                                throw err;
+                            return done(null, newUser);
+                        });
+                    }
 
+                });
             });
-        });
 
-}));
+        }
+    ));
 
     // local login auth
     passport.use('local-login', new LocalStrategy({
@@ -69,25 +70,26 @@ module.exports = function(passport) {
         passwordField : 'password',
         passReqToCallback : true
     },
-    function(req, email, password, done) {
+        function(req, email, password, done) {
 
-        User.findOne({ 'local.email' :  email }, function(err, user) {
-            // if there are any errors, return the error before anything else
-            if (err)
-                return done(err);
+            User.findOne({ 'local.email' :  email }, function(err, user) {
+                // if there are any errors, return the error before anything else
+                if (err)
+                    return done(err);
 
-            // if no user is found, return the message
-            if (!user)
-                return done(null, false, req.flash('loginMessage', 'No user found, you cray??'));
+                // if no user is found, return the message
+                if (!user)
+                    return done(null, false, req.flash('loginMessage', 'No user found, you cray??'));
 
-            // if the user is found but the password is wrong
-            if (!user.validPassword(password))
-                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password. Self destruct in 4 seconds...'));
+                // if the user is found but the password is wrong
+                if (!user.validPassword(password))
+                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password. Self destruct in 4 seconds...'));
 
-            // all is well, return successful user
-            return done(null, user);
-        });
+                // all is well, return successful user
+                return done(null, user);
+            });
 
-    }));
+        }
+    ));
 
 };

@@ -10,33 +10,26 @@ var KenApp = angular.module('KenApp', [ 'ngMessages', 'ngRoute', 'ngResource'])
       controller: 'LoginCtrl'
    })
    .when('/register',{
-     templateUrl: 'views/register.html',
-     controller: 'SignupCtrl'
+     templateUrl: 'views/register.html'//,
+     //controller: 'RegisterCtrl'
    })
-   // .when('/template',{
-     // templateUrl: 'views/home.html',
-     // controller: 'MainCtrl'
-   // })
-   // // .when('/home',{
-     // // redirectTo:'/template'
-   // // })
    .when('/timeline',{
      templateUrl: 'views/timeline.html',
      controller: 'TimelineCtrl'
    })
-    // .when('/archive',{
-     // templateUrl: 'views/archive.html',
-     // controller: 'ArchiveCtrl'
-   // })
-   .when('/NewPost',{     //New Post
-     templateUrl: 'views/newpost.html',
-     controller: 'NewPostCtrl'
+   .when('/newpost',{
+     templateUrl: 'views/newquestion.html'//,
+     //controller: 'NewPostCtrl'
    })
-   .when('/newpost',{   
-      redirectTo: '/NewPost'
+   .when('/NewPost',{   
+      redirectTo: '/newpost'
+   })
+   .when('/question',{
+     templateUrl: 'views/question.html'//,
+     //controller: 'NewPostCtrl'
    })
    .otherwise({
-     redirectTo: '/login'
+     redirectTo: '/404.html'
    });
 });
 

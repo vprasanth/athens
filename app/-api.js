@@ -81,6 +81,7 @@ module.exports = function(app) {
         
     app.route('/question')
         .get(function(req,res) {
+            console.log("I am in question");
             Question.find().populate('_user _course _answers')
                 .exec(function(err, questions) {
                 if (err)

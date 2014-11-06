@@ -3,7 +3,7 @@
 <head>
    <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
    <meta charset="utf-8">
-   <title>Bootply.com - Bootstrap Collapsing sidebar drawer menu</title>
+   <title>Athens</title>
    <meta name="generator" content="Bootply" />
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <!-- <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -173,18 +173,22 @@
             <!-- main area -->
             <div class="col-xs-12 col-sm-9 padding-top">
                <div ng-switch="thisPage" class="animate-switch-container">
-                  <div ng-switch-default class="animate-switch">
+                  <div ng-switch-when="myPosts" class="animate-switch">
                      <h1 class="Papyrys-font darkbluecolor">Timeline</h1>
                      <div class="panel panel-default">
                         <div class="panel-heading">
                            <div class="row">
-                              <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                              <div class="col-xs-8 col-sm-9 col-md-9 col-lg-10">
                                  <a href="google.com">
                                     <h2 class="darkbluecolor"><i class="fa fa-globe fa-spin"></i> : Fifth Amendment</h2>
                                  </a>
+                                 3 hours ago
                               </div>
-                              <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-                                 <p class="text-right"><i class="fa fa-user fa-1x"></i> : KenNguyen</p>
+                              <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+                                 <p class="text-right"> <i class="fa fa-user fa-1x"></i> : KenNguyen<br/>
+                                 3 reports<br/>
+                                 5 answers
+                                 </p>
                               </div>
                            </div><!-- .row -->
                         </div><!-- ./panel-heading -->
@@ -198,31 +202,32 @@
                         </div>
                         <div class="panel-footer">
                            <div class="row text-center" ng-init="reportValue='Report'">
-                              <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" style="margin-top: 7px;">3 hours ago</div>
-                              <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
-                                 <button type="button" class="btn btn-primary"> LAW101 </button>
-                              </div>
-                              <!-- <div class="col-xs-4 col-sm-4 col-md-2 text-center">Type</div> -->
-                              <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
-                                 <button type="button" class="btn btn-primary" style="width:135px"> Respond </button>
-                              </div>
-                              <div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+                              <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
                                  <button type="button" class="btn btn-default" ng-class="{'btn-primary':archive=='clicked'}" ng-click="archive=(archive=='clicked'?'unclicked':'clicked')"> 
                                     <i class="fa" ng-class="{'fa-star yellowColor':archive=='clicked',
                                                              'fa-star-o':archive!='clicked'}"></i>
                                  </button>
                               </div>
-                              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                              <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                                 <button type="button" class="btn btn-primary"> LAW101 </button>
+                              </div>
+                              <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                 <button type="button" class="btn btn-primary" style="width:135px"> Respond </button>
+                              </div>
+                              <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                 <button type="button" class="btn btn-primary" style="width:135px"> Comment </button>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                                  <!-- Single button -->
                                     <div class="btn-group">
                                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" style="width: 135px;">
                                          {{ reportValue }} <span class="caret"></span>
                                        </button>
                                        <ul class="dropdown-menu" role="menu">
-                                          <li><a href="#" ng-click="reportChoice='reported'; reportValue='Report User'">Report User</a></li>
-                                          <li><a href="#" ng-click="reportChoice='reported'; reportValue='Report Question' ">Report the question</a></li>
+                                          <li><a href="" ng-click="reportChoice='reported'; reportValue='Report User'">Report User</a></li>
+                                          <li><a href="" ng-click="reportChoice='reported'; reportValue='Report Question' ">Report the question</a></li>
                                           <li class="divider"></li>
-                                          <li><a href="#" ng-click="reportChoice='cancel'; reportValue='Report' ">Cancel report</a></li>
+                                          <li><a href="" ng-click="reportChoice='cancel'; reportValue='Report' ">Cancel report</a></li>
                                       </ul>
                                     </div><!-- .btn-group -->
                                     <i ng-class="{'fa fa-flag fa-2x crimsonRed':reportChoice=='reported',
@@ -302,9 +307,196 @@
                   <div ng-switch-when="private" class="animate-switch">
                      <h1>Private</h1>
                   </div>
-                  <div ng-switch-when="myPosts" class="animate-switch">
-                     <h1>My Posts</h1>
-                  </div>
+                  <div ng-switch-default class="animate-switch">
+                     <h1 class="Papyrys-font darkbluecolor">Question & Answer</h1>
+                     <!-- The Question -->
+                     <div class="panel panel-default" style="margin-bottom: 5px; margin-top:10px">
+                        <div class="panel-heading">
+                           <div class="row">
+                              <div class="col-xs-8 col-sm-9 col-md-9 col-lg-10">
+                                 <a href="google.com">
+                                    <h2 class="darkbluecolor"><i class="fa fa-globe fa-spin"></i> : Fifth Amendment</h2>
+                                 </a>
+                                 3 hours ago
+                              </div>
+                              <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+                                 <p class="text-right"> <i class="fa fa-user fa-1x"></i> : KenNguyen<br/>
+                                 3 reports<br/>
+                                 5 answers
+                                 </p>
+                              </div>
+                           </div><!-- .row -->
+                        </div><!-- ./panel-heading -->
+                        <div class="panel-body">
+                        No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment 
+                        or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, 
+                        when in actual service in time of War or public danger; nor shall any person be subject for the same 
+                        offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be 
+                        a witness against himself, nor be deprived of life, liberty, or property, without due process of law; 
+                        nor shall private property be taken for public use, without just compensation.
+                        </div>
+                        <div class="panel-footer">
+                           <div class="row text-center" ng-init="reportValue='Report'">
+                              <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
+                                 <button type="button" class="btn btn-default" ng-class="{'btn-primary':archive=='clicked'}" ng-click="archive=(archive=='clicked'?'unclicked':'clicked')"> 
+                                    <i class="fa" ng-class="{'fa-star yellowColor':archive=='clicked',
+                                                             'fa-star-o':archive!='clicked'}"></i>
+                                 </button>
+                              </div>
+                              <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                                 <button type="button" class="btn btn-primary"> LAW101 </button>
+                              </div>
+                              <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                 <button type="button" class="btn btn-primary" style="width:135px"> Respond </button>
+                              </div>
+                              <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                 <button type="button" class="btn btn-primary" style="width:135px"> Comment </button>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                 <!-- Single button -->
+                                    <div class="btn-group">
+                                       <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" style="width: 135px;">
+                                         {{ reportValue }} <span class="caret"></span>
+                                       </button>
+                                       <ul class="dropdown-menu" role="menu">
+                                          <li><a href="" ng-click="reportChoice='reported'; reportValue='Report User'">Report User</a></li>
+                                          <li><a href="" ng-click="reportChoice='reported'; reportValue='Report Question' ">Report the question</a></li>
+                                          <li class="divider"></li>
+                                          <li><a href="" ng-click="reportChoice='cancel'; reportValue='Report' ">Cancel report</a></li>
+                                      </ul>
+                                    </div><!-- .btn-group -->
+                                    <i ng-class="{'fa fa-flag fa-2x crimsonRed':reportChoice=='reported',
+                                                   '':reportChoice!='reported'}" style="margin-top:-7px"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div><!-- .panel -->
+
+                     <!-- Comments -->
+                     <div class="border well" style="margin-left: 51px; padding: 6px;">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                              <small>3 hours ago</small>
+                           </div>
+                           <div class="col-xs-8 col-sm-6 col-md-7 col-lg-8">
+                              <small>Are you drunk, dude?</small>
+                           </div>
+                           <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+                              <small><i class="fa fa-user fa-1x"></i> : JackDaniel<br/></small>
+                           </div>
+                        </div><!-- .row -->
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                              <small>1 hours ago</small>
+                           </div>
+                           <div class="col-xs-8 col-sm-6 col-md-7 col-lg-8">
+                              <small>Not so sure</small>
+                           </div>
+                           <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+                              <small><i class="fa fa-user fa-1x"></i> : BlackLabel<br/></small>
+                           </div>
+                        </div><!-- .row -->
+                     </div><!-- Comments -->
+
+                     <!-- Answers -->
+                     <div class="panel panel-default" style="margin-bottom: 5px; margin-top:10px">
+                        <div class="panel-heading">
+                           <div class="row">
+                              <div class="col-xs-8 col-sm-9 col-md-9 col-lg-10">
+                                 3 hours ago
+                              </div>
+                              <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+                                 <i class="fa fa-user fa-1x"></i> : KenNguyen<br/>
+                              </div>
+                           </div><!-- .row -->
+                        </div><!-- ./panel-heading -->
+                        <div class="panel-body">
+                        That is the right thing
+                        </div>
+                        <div class="panel-footer">
+                           <div class="row text-center" ng-init="reportValue='Report'">
+                              <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+                              <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+                              <div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div>
+                              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                                 <button type="button" class="btn btn-primary" style="width:135px" ng-click="commentChoice='clicked'"> Comment </button>
+                              </div>
+                              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                                 <!-- Single button -->
+                                    <div class="btn-group">
+                                       <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" style="width: 135px;">
+                                         {{ reportValue }} <span class="caret"></span>
+                                       </button>
+                                       <ul class="dropdown-menu" role="menu">
+                                          <li><a href="" ng-click="reportChoice='reported'; reportValue='Report User'">Report User</a></li>
+                                          <li><a href="" ng-click="reportChoice='reported'; reportValue='Report Question' ">Report the question</a></li>
+                                          <li class="divider"></li>
+                                          <li><a href="" ng-click="reportChoice='cancel'; reportValue='Report' ">Cancel report</a></li>
+                                      </ul>
+                                    </div><!-- .btn-group -->
+                                    <i ng-class="{'fa fa-flag fa-2x crimsonRed':reportChoice=='reported',
+                                                   '':reportChoice!='reported'}" style="margin-top:-7px"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div><!-- .panel -->
+                     
+                      <!-- Comments -->
+                     <div class="border well" style="margin-left: 51px; padding: 6px;">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                              <small>3 hours ago</small>
+                           </div>
+                           <div class="col-xs-8 col-sm-6 col-md-7 col-lg-8">
+                              <small>Are you drunk, dude?</small>
+                           </div>
+                           <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+                              <small><i class="fa fa-user fa-1x"></i> : JackDaniel<br/></small>
+                           </div>
+                        </div><!-- .row -->
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                              <small>1 hours ago</small>
+                           </div>
+                           <div class="col-xs-8 col-sm-6 col-md-7 col-lg-8">
+                              <small>Not so sure</small>
+                           </div>
+                           <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+                              <small><i class="fa fa-user fa-1x"></i> : BlackLabel<br/></small>
+                           </div>
+                        <div>
+                           <form class="form-inline" role="search" style="border-color:aliceblue">							
+                              <div class="col-xs-10 col-sm-12 col-xs-offset-1" ng-if="commentChoice=='clicked'">
+                                 <div class="input-group" style="width:100%">
+                                    <input type="text" class="form-control" placeholder="Comment ... ">
+                                    <span class="input-group-btn">
+                                       <button class="btn btn-primary" type="button"><i class="fa fa-comment"></i></button>
+                                       <button class="btn btn-warning" type="button" ng-click="$parent.commentChoice='unclicked'"><i class="fa fa-times"></i></button>
+                                    </span>
+                                 </div><!-- /input-group -->
+                              </div><!-- /.col-lg-6 -->
+                           </form>
+                        </div>
+                        </div><!-- .row -->
+                     </div><!-- Comments -->
+
+
+                     <!-- The Answer -->
+                     <div class="panel-body well" style="margin-bottom: 5px; margin-top:10px">
+                        <form method="post" ng-submit="publishAnswerPost()" name="newAnswerForm"> 
+                           <div class="form-group" ng-class="{'has-success' : newAnswerForm.message.$valid && newAnswerForm.message.$dirty, 
+                                                               'has-error' : newAnswerForm.message.$invalid && newAnswerForm.message.$dirty }">
+                              <textarea class="form-control input-lg posttext" id="message" name="message" ng-model="message" required placeholder="Type your answer ..."></textarea>
+                              <div class="help-block text-danger" 
+                                    ng-if="newAnswerForm.message.$dirty && newAnswerForm.message.$invalid" 
+                                    ng-messages="newAnswerForm.message.$error">
+                                 <div ng-message="required">Your forgot to enter the message ...</div>
+                              </div>
+                           </div>
+                           <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit</button>
+                        </form>
+                     </div>
+                  </div><!-- myPosts -->
                   <div ng-switch-when="settings" class="animate-switch">
                      <h1>Settings</h1>
                   </div>

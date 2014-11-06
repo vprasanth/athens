@@ -1,5 +1,6 @@
-<h1 class="Papyrys-font darkbluecolor">Timeline</h1>
-<div class="panel panel-default">
+<h1 class="Papyrys-font darkbluecolor">Question & Answer</h1>
+<!-- The Question -->
+<div class="panel panel-default" style="margin-bottom: 5px; margin-top:10px">
    <div class="panel-heading">
       <div class="row">
          <div class="col-xs-8 col-sm-9 col-md-9 col-lg-10">
@@ -61,50 +62,56 @@
    </div>
 </div><!-- .panel -->
 
+<!-- Comments -->
+<div class="border well" style="margin-left: 51px; padding: 6px;">
+   <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+         <small>3 hours ago</small>
+      </div>
+      <div class="col-xs-8 col-sm-6 col-md-7 col-lg-8">
+         <small>Are you drunk, dude?</small>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+         <small><i class="fa fa-user fa-1x"></i> : JackDaniel<br/></small>
+      </div>
+   </div><!-- .row -->
+   <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+         <small>1 hours ago</small>
+      </div>
+      <div class="col-xs-8 col-sm-6 col-md-7 col-lg-8">
+         <small>Not so sure</small>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+         <small><i class="fa fa-user fa-1x"></i> : BlackLabel<br/></small>
+      </div>
+   </div><!-- .row -->
+</div><!-- Comments -->
 
-            <h2>{{ ques.Title }}</h2>
-
-
-         
-<div ng-repeat="question in questionsRES | filter:searchText">
-<div class="panel panel-default">
+<!-- Answers -->
+<div class="panel panel-default" style="margin-bottom: 5px; margin-top:10px">
    <div class="panel-heading">
       <div class="row">
          <div class="col-xs-8 col-sm-9 col-md-9 col-lg-10">
-            <a href="google.com">
-               <h2 class="darkbluecolor"><i class="fa fa-globe fa-spin"></i> : {{ question.title }}</h2>
-            </a>
-            {{ question.postDate }}
+            3 hours ago
          </div>
-         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
-            <p class="text-right"> <i class="fa fa-user fa-1x"></i> : {{ question._user.name }}<br/>
-            {{ question._report.length }} reports<br/>
-            {{ question._answers.length }} answers
-            </p>
+         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+            <i class="fa fa-user fa-1x"></i> : KenNguyen<br/>
          </div>
       </div><!-- .row -->
    </div><!-- ./panel-heading -->
    <div class="panel-body">
-   {{ question.questionDesc }}
+   That is the right thing
    </div>
    <div class="panel-footer">
       <div class="row text-center" ng-init="reportValue='Report'">
-         <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
-            <button type="button" class="btn btn-default" ng-class="{'btn-primary':archive=='clicked'}" ng-click="archive=(archive=='clicked'?'unclicked':'clicked')"> 
-               <i class="fa" ng-class="{'fa-star yellowColor':archive=='clicked',
-                                        'fa-star-o':archive!='clicked'}"></i>
-            </button>
+         <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+         <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+         <div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div>
+         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <button type="button" class="btn btn-primary" style="width:135px" ng-click="commentChoice='clicked'"> Comment </button>
          </div>
-         <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-            <button type="button" class="btn btn-primary"> LAW101 </button>
-         </div>
-         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-            <button type="button" class="btn btn-primary" style="width:135px"> Respond </button>
-         </div>
-         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-            <button type="button" class="btn btn-primary" style="width:135px"> Comment </button>
-         </div>
-         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
             <!-- Single button -->
                <div class="btn-group">
                   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" style="width: 135px;">
@@ -123,4 +130,59 @@
       </div>
    </div>
 </div><!-- .panel -->
-</div><!-- Repeat -->
+
+ <!-- Comments -->
+<div class="border well" style="margin-left: 51px; padding: 6px;">
+   <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+         <small>3 hours ago</small>
+      </div>
+      <div class="col-xs-8 col-sm-6 col-md-7 col-lg-8">
+         <small>Are you drunk, dude?</small>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+         <small><i class="fa fa-user fa-1x"></i> : JackDaniel<br/></small>
+      </div>
+   </div><!-- .row -->
+   <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+         <small>1 hours ago</small>
+      </div>
+      <div class="col-xs-8 col-sm-6 col-md-7 col-lg-8">
+         <small>Not so sure</small>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 text-right">
+         <small><i class="fa fa-user fa-1x"></i> : BlackLabel<br/></small>
+      </div>
+   <div>
+      <form class="form-inline" role="search" style="border-color:aliceblue">							
+         <div class="col-xs-10 col-sm-12 col-xs-offset-1" ng-if="commentChoice=='clicked'">
+            <div class="input-group" style="width:100%">
+               <input type="text" class="form-control" placeholder="Comment ... ">
+               <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button"><i class="fa fa-comment"></i></button>
+                  <button class="btn btn-warning" type="button" ng-click="$parent.commentChoice='unclicked'"><i class="fa fa-times"></i></button>
+               </span>
+            </div><!-- /input-group -->
+         </div><!-- /.col-lg-6 -->
+      </form>
+   </div>
+   </div><!-- .row -->
+</div><!-- Comments -->
+
+
+<!-- The Answer -->
+<div class="panel-body well" style="margin-bottom: 5px; margin-top:10px">
+   <form method="post" ng-submit="publishAnswerPost()" name="newAnswerForm"> 
+      <div class="form-group" ng-class="{'has-success' : newAnswerForm.message.$valid && newAnswerForm.message.$dirty, 
+                                          'has-error' : newAnswerForm.message.$invalid && newAnswerForm.message.$dirty }">
+         <textarea class="form-control input-lg posttext" id="message" name="message" ng-model="message" required placeholder="Type your answer ..."></textarea>
+         <div class="help-block text-danger" 
+               ng-if="newAnswerForm.message.$dirty && newAnswerForm.message.$invalid" 
+               ng-messages="newAnswerForm.message.$error">
+            <div ng-message="required">Your forgot to enter the message ...</div>
+         </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit</button>
+   </form>
+</div>

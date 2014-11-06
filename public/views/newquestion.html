@@ -1,0 +1,62 @@
+<!-- style="color: #428bca" -->
+<h1 class="Papyrys-font darkbluecolor">Create A New Post</h1>
+<form method="post" ng-submit="publishPost()" name="newPostForm"> 
+   <div class="panel panel-default">
+      <div class="panel-heading">
+         <div class="form-group" ng-class="{'has-success' : newPostForm.title.$valid && newPostForm.title.$dirty, 
+                                            'has-error' : newPostForm.title.$invalid && newPostForm.title.$dirty }">
+            <input class="form-control input-lg" type="text" id="title" name="title" placeholder="Title ..." ng-model="title" required> 
+            <div class="help-block text-warning bg-warning" 
+                  ng-if="newPostForm.title.$dirty && newPostForm.title.$invalid" 
+                  ng-messages="newPostForm.title.$error">
+                  <div ng-message="required">Your forgot to enter the title ...</div>
+            </div>
+         </div>
+      </div>
+      <div class="panel-body">
+         <div class="form-group" ng-class="{'has-success' : newPostForm.message.$valid && newPostForm.message.$dirty, 
+                                            'has-error' : newPostForm.message.$invalid && newPostForm.message.$dirty }">
+            <textarea class="form-control input-lg posttext" id="message" name="message" ng-model="message" required placeholder="Type the question you want to ask ..."></textarea>
+            <div class="help-block text-danger" 
+                  ng-if="newPostForm.message.$dirty && newPostForm.message.$invalid" 
+                  ng-messages="newPostForm.message.$error">
+               <div ng-message="required">Your forgot to enter the message ...</div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+               <select class="form-control dropdown" ng-model="course" ng-options="">
+                  <option value="">Select the course</option>
+                  <option>OPP344</option>
+                  <option>IPC144</option>
+                  <option>INT322</option>
+               </select>
+            </div>
+         </div><!-- .row -->
+      </div><!-- .panel-body -->
+      <div class="panel-footer">
+         <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+               <label class="radio-inline">
+                  <input type="radio" name="questionType" value="private" ng-model="questionType">
+                  <i class="fa fa-lock fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='private'}">                                       </i>
+               </label>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+               <label class="radio-inline">
+                  <input type="radio" name="questionType" value="public" ng-model="questionType" ng-checked="true">
+                  <i class="fa fa-globe fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='public'}"></i>
+               </label>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 text-center">
+               <label class="radio-inline">
+                  <input type="radio" name="questionType" value="market" ng-model="questionType">
+                  <i class="fa fa-tags fa-2x" ng-class="{'darkbluecolor':newPostForm.questionType.$viewValue=='market'}">
+                  </i>
+               </label>
+            </div>
+         </div>
+      </div>
+   </div><!-- ./panel-->
+   <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit</button>
+</form>

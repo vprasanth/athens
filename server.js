@@ -2,7 +2,7 @@
 
 var express			= require('express'),
 	app            	= express(),
-	port			= process.env.PORT || 8080,
+	port			= process.env.PORT || 3008,
 	mongoose		= require('mongoose'),
 	passport		= require('passport'),
 	flash			= require('connect-flash'),
@@ -26,7 +26,9 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 /*set view engine*/
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
+app.set('views', __dirname + '/public/views');
+app.use(express.static(__dirname + '/public'));
 
 /*set-up for passport*/
 app.use(session({secret: 'idiajoed289378djaoiiwdowaj'}));
@@ -37,7 +39,7 @@ app.use(flash());
 
 /*pass configured app and passport to route handler*/
 require('./app/routes')(app, passport);
-
+require('./app/api')(app);
 
 /*special tasks for dev mode*/
 var env = process.env.NODE_ENV || 'development';
