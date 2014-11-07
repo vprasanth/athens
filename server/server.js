@@ -15,8 +15,7 @@ var config			= require('./config'),
 	methodOverride 	= require('method-override');
 
 /*database configuration*/
-//console.log(config);
-mongoose.connect('mongodb://test:test@ds051160.mongolab.com:51160/sos-pv');
+mongoose.connect(config.mongo.url[0]);
 
 // Configure passport, i.e. create login stratagies
 //require('./config/passport')(passport);
