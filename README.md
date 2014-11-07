@@ -3,13 +3,26 @@ Codename for SOS, a Q/A site for post-secondary students, catered around their p
 
 ### Requirements
 + [nodejs](http://nodejs.org/)
-+ [mongodb](http://docs.mongodb.org/manual/administration/install-on-linux/) ([localhost exception](http://docs.mongodb.org/manual/core/authentication/#localhost-exception)  must be turned on to use supplied db config file) 
++ npm
++ bower
++ mongodb user account
 
 ### Installation
-+ `git clone https://github.com/Zappeion/athens.git whatever`
-+ `cd whatever`
++ `git clone git@github.com:Zappeion/athens.git`
++ `cd athens`
 + `npm install`
++ `bower install`
 
+### Config
+Add your mongodb credentials in to `app/etc/database.json`
+**DO NOT COMMIT CHANGES FOR THIS FILE** It should **only** be used as a template.
+```json
+{
+  "url" : ["mongodb://<user>:<password>@ds051160.mongolab.com:51160/sos-pv"]
+}
+```
 ### Running
-+ `node ./server.js`
-+ visit localhost:8080 on your browser!! 
++ `node app/server.js`
++ visit localhost:3000 on your browser!!
+
+
